@@ -34,6 +34,7 @@ public class ChatInitializer implements WebApplicationInitializer {
 		ServletRegistration.Dynamic registration = servletContext.addServlet(SERVLET_NAME, servlet);
 		registration.addMapping(SERVLET_MAPPING);
 		registration.setLoadOnStartup(1);
+		registration.setAsyncSupported(true);
 	}
 
 }
