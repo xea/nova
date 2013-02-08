@@ -10,15 +10,18 @@
 	<modules>
 		<module>nova-servlet3</module>
 		<module>nova-patterns</module>
+		<module>nova-spring3-web</module>
 	</modules>
 
 	<properties>
 		<logback.version>1.0.9</logback.version>
+		<jade.version>0.3.8</jade.version>
 		<jdk.version>1.6</jdk.version>
 		<junit.version>4.10</junit.version>
 		<servlet-api.version>3.0.1</servlet-api.version>
 		<slf4j.version>1.7.2</slf4j.version>
 		<spring.version>3.2.0.RELEASE</spring.version>
+		<spring-jade.version>0.3.2</spring-jade.version>
 	</properties>
 
 	<build>
@@ -46,6 +49,34 @@
 				<version>${servlet-api.version}</version>
 			</dependency>
 
+			<!-- View Engines -->
+
+			<dependency>
+				<groupId>de.neuland</groupId>
+				<artifactId>jade4j</artifactId>
+				<version>${jade.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>de.neuland</groupId>
+				<artifactId>spring-jade4j</artifactId>
+				<version>${spring-jade.version}</version>
+			</dependency>
+
+			<!-- Spring Framework -->
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
 			<!-- Logger facilities -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -64,4 +95,16 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>jade4j-releases</id>
+			<url>https://raw.github.com/neuland/jade4j/master/releases</url>
+		</repository>
+		
+		<repository>
+			<id>spring-jade4j-releases</id>
+			<url>https://raw.github.com/neuland/spring-jade4j/master/releases</url>
+		</repository>
+	</repositories>
 </project>
