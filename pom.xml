@@ -11,10 +11,14 @@
 		<module>nova-servlet3</module>
 		<module>nova-patterns</module>
 		<module>nova-spring3-web</module>
+
+		<module>nova-hbm-validator</module>
+		<module>nova-joda</module>
 	</modules>
 
 	<properties>
 		<logback.version>1.0.9</logback.version>
+		<hibernate.version>4.3.1.Final</hibernate.version>
 		<jade.version>0.3.8</jade.version>
 		<jdk.version>1.6</jdk.version>
 		<junit.version>4.10</junit.version>
@@ -61,6 +65,14 @@
 				<groupId>de.neuland</groupId>
 				<artifactId>spring-jade4j</artifactId>
 				<version>${spring-jade.version}</version>
+			</dependency>
+
+			<!-- Hibernate -->
+			
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${hibernate.version}</version>
 			</dependency>
 
 			<!-- Spring Framework -->

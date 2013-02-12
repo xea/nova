@@ -3,6 +3,7 @@
  */
 package hu.xea.nova.spring3.async;
 
+import java.util.Map;
 import java.util.concurrent.Callable;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ChatController {
 	
 	private final Logger logger = LoggerFactory.getLogger(getClass());
+	
+	public Map referenceData(final HttpServletRequest request) throws Exception {
+		logger.debug("Reference data bazeg");
+		return null;
+	}
 
 	@RequestMapping("/login")
 	public String login() {
