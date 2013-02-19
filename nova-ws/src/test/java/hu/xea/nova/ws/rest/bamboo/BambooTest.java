@@ -6,6 +6,7 @@ import hu.xea.nova.ws.rest.bamboo.api.Projects;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class BambooTest {
 	
@@ -18,7 +19,7 @@ public class BambooTest {
 
 	@Test
 	public void testListProjects() {
-		client.connect();
+		client.connect(new MockServerFactory());
 		Projects projects = client.listProjects();
 	}
 

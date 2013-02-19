@@ -11,21 +11,12 @@ import org.jboss.resteasy.spi.ResteasyProviderFactory;
 public class BambooClient {
 	
 	private BambooServer server;
-
-	public void connect() {
-		RegisterBuiltin.register(ResteasyProviderFactory.getInstance());
-		
-		final String scheme = "http";
-		final String host = "192.168.12.16";
-		final String port = "8085";
-		//final String path = "/bamboo/rest/api/latest";
-		final String path = "/rest/api/latest";
-		
-		final String URL = scheme + "://" + host + ":" + port + path;
-		
-		server = ProxyFactory.create(BambooServer.class, URL);
-		
-		server.authenticate(AuthType.Basic.toString(), "sandor.pecsi@shiwaforce.com", "JAkVGN[J6muQBMNr");
+	
+	public void connect(final ServerFactory serverProvider) {
+		server = serverProvider.getServer();
+		// We are not going to provide credentials by default since the default 
+		// test implementation uses a mock service
+		server.authenticate(AuthType.Basic.toString(), "username", "password");
 	}
 	
 	public Projects listProjects() {

@@ -22,6 +22,7 @@
 		<jade.version>0.3.8</jade.version>
 		<jdk.version>1.6</jdk.version>
 		<junit.version>4.10</junit.version>
+		<mockito.version>1.9.5</mockito.version>
 		<resteasy.version>2.3.5.Final</resteasy.version>
 		<servlet-api.version>3.0.1</servlet-api.version>
 		<slf4j.version>1.7.2</slf4j.version>
@@ -98,6 +99,14 @@
 				<version>${resteasy.version}</version>
 			</dependency>
 
+			<!-- Mockito -->
+			
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>${mockito.version}</version>
+			</dependency>
+			
 			<!-- Logger facilities -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
