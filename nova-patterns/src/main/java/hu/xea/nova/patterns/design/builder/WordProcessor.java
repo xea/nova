@@ -1,4 +1,4 @@
-package com.shiwaforce.nova.dp.builder;
+package hu.xea.nova.patterns.design.builder;
 
 public class WordProcessor {
 
