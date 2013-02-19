@@ -6,7 +6,7 @@ import hu.xea.nova.ws.rest.bamboo.api.BambooServer;
  * Allows clients to instantiate {@link BambooServer} instances without knowing
  * the implementation details. 
  * 
- * @author sandor.pecsi
+ * @author xea
  *
  */
 public abstract class ServerFactory {

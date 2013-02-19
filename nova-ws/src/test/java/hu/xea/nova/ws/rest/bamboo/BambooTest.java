@@ -1,12 +1,9 @@
 package hu.xea.nova.ws.rest.bamboo;
 
-import static org.junit.Assert.*;
-import hu.xea.nova.ws.rest.bamboo.api.BambooServer;
 import hu.xea.nova.ws.rest.bamboo.api.Projects;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 public class BambooTest {
 	
