@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="errorlog" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %-8t %-6p %C.%M:%L"%m"%n</pattern>
+		</encoder>
+		<target>System.err</target>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+	</appender>
+	
+	<appender name="applog" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %t %p %C.%M:%L %nopex"%m"%n</pattern>
+		</encoder>
+	</appender>
+	
+	<root level="debug">
+		<appender-ref ref="applog" />
+		<appender-ref ref="errorlog" />
+ 	</root>
+</configuration>

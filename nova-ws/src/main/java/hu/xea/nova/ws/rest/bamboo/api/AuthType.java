@@ -8,7 +8,7 @@ package hu.xea.nova.ws.rest.bamboo.api;
  */
 public enum AuthType {
 
-	Basic("basic");
+	BASIC("basic");
 	
 	private final String type;
 	
