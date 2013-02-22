@@ -4,6 +4,12 @@ import org.mockito.Mockito;
 
 import hu.xea.nova.ws.rest.bamboo.api.BambooServer;
 
+/**
+ * Provides mock {@link ServerFactory} classes for testing purposes
+ *  
+ * @author xea
+ *
+ */
 public class MockServerFactory extends ServerFactory {
 
 	@Override

@@ -14,21 +14,10 @@ import org.jboss.resteasy.spi.ResteasyProviderFactory;
  */
 public class ResteasyServerFactory extends ServerFactory {
 	
-	public static final String DEFAULT_SCHEME = "http";
-	
-	public static final String DEFAULT_HOST = "localhost";
-	
-	public static final String DEFAULT_PORT = "8085";
-	
-	public static final String DEFAULT_PATH = "/rest/api/latest";
-	
-	private String scheme = DEFAULT_SCHEME;
-	
-	private String host = DEFAULT_HOST;
-	
-	private String port = DEFAULT_PORT;
-	
-	private String path = DEFAULT_PATH;
+	/**
+	 * Connection descriptor of the Bamboo Server
+	 */
+	private BambooConnection connection;
 	
 	/**
 	 * No-argument constructor that uses the default settings to determine
@@ -40,6 +29,7 @@ public class ResteasyServerFactory extends ServerFactory {
 	 */
 	public ResteasyServerFactory() {
 		super();
+		this.connection = new BambooConnection();
 	}
 	
 	/**
@@ -47,26 +37,20 @@ public class ResteasyServerFactory extends ServerFactory {
 	 * 
 	 * During connection these new values will be used.
 	 * 
-	 * @param host the hostname of the Bamboo server
-	 * @param port the TCP port number where the Bamboo server is listening
+	 * @param connection the connection descriptor used to connect
 	 */
-	public ResteasyServerFactory(final String host, final String port) {
+	public ResteasyServerFactory(final BambooConnection connection) {
 		this();
-		this.host = host;
-		this.port = port;
+		this.connection = connection;
 	}
 
 	@Override
 	public BambooServer getServer() {
 		RegisterBuiltin.register(ResteasyProviderFactory.getInstance());
 		
-		final String URL = getConnectionString();
+		final String URL = connection.toString();
 		final BambooServer server = ProxyFactory.create(BambooServer.class, URL);
 		
 		return server;
-	}
-	
-	protected String getConnectionString() {
-		return scheme + "://" + host + ":" + port + path;
 	}
 }
