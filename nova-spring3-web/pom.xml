@@ -41,9 +41,17 @@
 			<artifactId>spring-jade4j</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>hu.xea.nova</groupId>
+			<artifactId>nova-core-chat</artifactId>
 		</dependency>
 	</dependencies>
 </project>

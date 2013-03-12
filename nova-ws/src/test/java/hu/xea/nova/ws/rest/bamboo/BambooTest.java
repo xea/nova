@@ -27,5 +27,10 @@ public class BambooTest {
 		assertNotNull("The projects object should not be null after a successful connection", projects);
 	}
 	
+	@Test
+	public void testValami() {
+		
+	}
+	
 
 }

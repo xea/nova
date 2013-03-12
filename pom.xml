@@ -14,11 +14,15 @@
 		<module>nova-hbm-validator</module>
 		<module>nova-joda</module>
 		<module>nova-ws</module>
+		<module>nova-aop</module>
+		<module>nova-core</module>
 	</modules>
 
 	<properties>
+		<aspectj.version>1.6.11</aspectj.version>
 		<logback.version>1.0.9</logback.version>
 		<hibernate.version>4.3.1.Final</hibernate.version>
+		<jackson.version>1.9.12</jackson.version>
 		<jade.version>0.3.8</jade.version>
 		<jdk.version>1.6</jdk.version>
 		<junit.version>4.10</junit.version>
@@ -43,12 +47,35 @@
 						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
 				</plugin>
+				
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>aspectj-maven-plugin</artifactId>
+					<version>1.4</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+								<goal>test-compile</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
 
 	<dependencyManagement>
 		<dependencies>
+		
+			<!-- Nova -->
+			
+			<dependency>
+				<groupId>hu.xea.nova</groupId>
+				<artifactId>nova-core-chat</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
@@ -67,6 +94,32 @@
 				<groupId>de.neuland</groupId>
 				<artifactId>spring-jade4j</artifactId>
 				<version>${spring-jade.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-asl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<!-- AspectJ -->
+			
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjrt</artifactId>
+				<version>${aspectj.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>${aspectj.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjtools</artifactId>
+				<version>${aspectj.version}</version>
 			</dependency>
 
 			<!-- Hibernate -->
