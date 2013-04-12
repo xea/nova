@@ -27,18 +27,34 @@ public class HelloFilter implements Filter {
 
 	private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
 	
+	/**
+	 * Initializes this Filter.
+	 * 
+	 * This implementation only appends a few messages to the log indicating that the filter has been initialized correctly
+	 */
 	public void init(FilterConfig filterConfig) throws ServletException {
 		logger.info("Initializing");
 		logger.info("Initialization complete");
 	}
 
+	/**
+	 * Does the actual filtering, allowing the filters to modify the handler chain
+	 * 
+	 * This implementation does nothing save for a little logging.
+	 */
 	public void doFilter(ServletRequest request, ServletResponse response, 	FilterChain filterChain) 
 			throws IOException, ServletException {
+
 		logger.info("Passing request to next filter");
-		
 		filterChain.doFilter(request, response);
+		logger.info("Returning from previous filter");
 	}
 
+	/**
+	 * Destroys this filter.
+	 * 
+	 * This implementation does nothing save for a little logging.
+	 */
 	public void destroy() {
 		logger.info("Destroying");
 		logger.info("Destroy complete");

@@ -2,6 +2,8 @@
 html
   head
     title Asynchronous Chat
-    script(type="text/javascript", src="/static/application.js")
+    script(type="text/javascript", src="#{urlRoot}/static/jquery-1.9.1.min.js")
+    script(type="text/javascript", src="#{urlRoot}/static/application.js")
   body
     #chat
+      a(href="send") Update

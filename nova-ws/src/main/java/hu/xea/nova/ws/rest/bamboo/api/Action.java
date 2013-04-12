@@ -20,10 +20,8 @@ public class Action {
 	@XmlEnum
 	public enum Name {
 
-		@XmlEnumValue("READ")
 		READ("READ"),
 	
-		@XmlEnumValue("WRITE")
 		WRITE("WRITE"),
 	
 		CREATE("CREATE"),

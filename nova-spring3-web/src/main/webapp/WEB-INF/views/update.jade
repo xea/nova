@@ -1,0 +1,20 @@
+!!! 5
+html
+  head
+    title Asynchronous Chat
+    script(type="text/javascript", src="#{urlRoot}/static/jquery-1.9.1.min.js")
+    script(type="text/javascript", src="#{urlRoot}/static/application.js")
+  bodyu
+    #chat
+      form(action="send", method="post")
+        input(type="text", name="message")
+        input(type="submit")
+    
+      #update Frissits
+      a(href="send") Update
+      .messages
+        for message in messages
+          .message
+            span.content #{message.from.nickname} 
+            |: 
+            span.content #{message.content}

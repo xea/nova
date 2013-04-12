@@ -1,7 +1,9 @@
 package hu.xea.nova.ws.rest.bamboo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import hu.xea.nova.ws.rest.bamboo.api.AuthType;
 import hu.xea.nova.ws.rest.bamboo.api.BambooServer;
@@ -28,31 +30,10 @@ public abstract class ServerFactory {
 	 * @return a {@link ServerFactory} instance
 	 */
 	public static ServerFactory getInstance(final BambooConnection connection) {
-		final List<Class<? extends ServerFactory>> factoryClasses = getFactoryClasses();
 		
-		ServerFactory instance = null;
+		ServerFactory instance = new ResteasyServerFactory();
 
-		for (final Class<? extends ServerFactory> factoryClass : factoryClasses) {
-			if (instance == null) {
-				instance = instantiateFactory(factoryClass, connection);
-			} else {
-				break;
-			}
-		}
-		
 		return instance;
-	}
-
-	/**
-	 * Return a list of classes that can be used for instantiating a {@link BambooServer} object
-	 * 
-	 * @return possible {@link ServerFactory} classes
-	 */
-	protected static List<Class<? extends ServerFactory>> getFactoryClasses() {
-		final List<Class<? extends ServerFactory>> factoryClasses = Arrays.asList(ResteasyServerFactory.class,
-				MockServerFactory.class);
-
-		return factoryClasses;
 	}
 
 	/**

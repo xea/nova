@@ -38,4 +38,11 @@ public class ChatControllerTest {
 		resultActions.andExpect(status().isOk());
 		resultActions.andExpect(content().contentType("text/html;charset=UTF-8"));
 	}
+	
+	@Test
+	public void testLoginForm() throws Exception {
+		final MockHttpServletRequestBuilder builder = get("/chat/login");
+		
+		mockMvc.perform(post("/chat/login").param("username", "testuser")).andExpect(status().isOk());
+	}
 }

@@ -15,7 +15,7 @@
 	<mvc:annotation-driven />
 	
 	<!-- Indicates which folder should be served as static resources -->
-	<mvc:resources mapping="/static/**" location="classpath:/static/" />
+	<mvc:resources mapping="/static/**" location="classpath:/static/,classpath:/WEB-INF/classes/static/" />
 
 	<!-- View configuration for Jade4j -->
 	<bean id="templateLoader" class="de.neuland.jade4j.spring.template.SpringTemplateLoader" p:basePath="/WEB-INF/views/" />
