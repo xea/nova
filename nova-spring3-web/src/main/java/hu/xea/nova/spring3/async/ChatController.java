@@ -5,8 +5,8 @@ package hu.xea.nova.spring3.async;
 
 import hu.xea.nova.chat.api.Channel;
 import hu.xea.nova.chat.api.Message;
-import hu.xea.nova.chat.api.PublicChannel;
 import hu.xea.nova.chat.api.User;
+import hu.xea.nova.chat.impl.PublicChannel;
 
 import java.util.List;
 import java.util.Map;

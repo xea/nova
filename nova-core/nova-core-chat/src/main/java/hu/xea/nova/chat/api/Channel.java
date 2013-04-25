@@ -1,6 +1,5 @@
 package hu.xea.nova.chat.api;
 
-import java.util.List;
 
 /**
  * A Channel is a place where {@link User}s can meet each other and see each others

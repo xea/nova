@@ -6,7 +6,19 @@
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<name>Nova Prototype Project</name>
+	
+	<developers>
+	    <developer><name>Sándor PÉCSI</name>
+	        <organization>ShiwaForce.com Inc.</organization>
+	        <organizationUrl>http://www.shiwaforce.com</organizationUrl>
+	        <roles>
+	            <role>Lead Developer</role>
+	        </roles>
+	    </developer>
+	</developers>
+	
 	<!--  Modul lista -->
+	
 	<modules>
 		<module>nova-aop</module>
 		<module>nova-core</module>
@@ -23,17 +35,18 @@
 		<aspectj.version>1.6.11</aspectj.version>
 		<esapi.version>2.0.1</esapi.version>
 		<logback.version>1.0.9</logback.version>
-		<hibernate.version>4.3.1.Final</hibernate.version>
+		<hibernate-core.version>4.2.0.Final</hibernate-core.version>
+		<hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
 		<jackson.version>1.9.12</jackson.version>
 		<jade.version>0.3.9</jade.version>
 		<joda.version>2.2</joda.version>
 		<jdk.version>1.6</jdk.version>
-		<junit.version>4.10</junit.version>
+		<junit.version>4.11</junit.version>
 		<mockito.version>1.9.5</mockito.version>
 		<resteasy.version>2.3.5.Final</resteasy.version>
 		<servlet-api.version>3.0.1</servlet-api.version>
 		<slf4j.version>1.7.2</slf4j.version>
-		<spring.version>3.2.0.RELEASE</spring.version>
+		<spring.version>3.2.2.RELEASE</spring.version>
 		<spring-jade.version>0.3.2</spring-jade.version>
 	</properties>
 
@@ -129,8 +142,14 @@
 			
 			<dependency>
 				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate-core.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
-				<version>${hibernate.version}</version>
+				<version>${hibernate-validator.version}</version>
 			</dependency>
 
 			<!-- Spring Framework -->

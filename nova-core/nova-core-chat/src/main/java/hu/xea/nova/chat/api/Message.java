@@ -1,6 +1,5 @@
 package hu.xea.nova.chat.api;
 
-import java.lang.reflect.Field;
 
 /**
  * A message that can be forwarded between clients and channels
