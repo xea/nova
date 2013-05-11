@@ -29,6 +29,8 @@
 		<module>nova-spring3-web</module>
 		<module>nova-ws</module>
 		<module>nova-owasp</module>
+		<module>nova-hibernate4</module>
+		<module>nova-drools</module>
 	</modules>
 
 	<properties>
@@ -40,7 +42,7 @@
 		<jackson.version>1.9.12</jackson.version>
 		<jade.version>0.3.9</jade.version>
 		<joda.version>2.2</joda.version>
-		<jdk.version>1.6</jdk.version>
+		<jdk.version>1.7</jdk.version>
 		<junit.version>4.11</junit.version>
 		<mockito.version>1.9.5</mockito.version>
 		<resteasy.version>2.3.5.Final</resteasy.version>

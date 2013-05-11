@@ -1,11 +1,10 @@
 package hu.xea.nova.chat.impl;
 
-import hu.xea.nova.chat.api.Channel;
-import hu.xea.nova.chat.api.Server;
-import hu.xea.nova.chat.api.User;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import hu.xea.nova.chat.api.Connection;
+import hu.xea.nova.chat.api.Server;
 
 /**
  * The default implementation of the {@link Server} interface.
@@ -21,15 +20,16 @@ public class ChatServer implements Server {
 	private boolean running = false;
 	
 	/**
-	 * Stores the clients who are currently online
+	 * Stores the next assignable connectionId
 	 */
-	private Map<String, User> clients = new ConcurrentHashMap<String, User>();
+	private volatile int nextConnectionId = 1;
 	
 	/**
-	 * Map of channels which are currently created. The user's nickname is used for key
+	 * Holds references of the connection objects assigned to nick names
 	 */
-	private Map<String, Channel> channels = new ConcurrentHashMap<String, Channel>();
+	private Map<String, Connection> connections = new ConcurrentHashMap<String, Connection>();
 	
+	@Override
 	public boolean isStarted() {
 		return running;
 	}
@@ -51,36 +51,46 @@ public class ChatServer implements Server {
 	}
 
 	@Override
-	public User connect(String nickname) {
-		assert nickname != null : "null as nickname is not accepted";
+	public Connection connect(String nickname) {
+		Connection connection = null;
 		
-		User newUser = null;
-		
-		if (nickname != null && isStarted() && !clients.containsKey(nickname)) {
-			newUser = new User(nickname);
-			clients.put(nickname, newUser);			
+		if (mayConnect(nickname)) {
+			connection = new UserConnection(this);
+			connections.put(nickname, connection);
+		} else {
+			connection = new OfflineConnection();
 		}
 		
-		return newUser;
+		return connection;
+	}
+	
+	/**
+	 * Returns the next assignable connection identifier 
+	 * @return connection ID
+	 */
+	protected synchronized int generateConnectionID() {
+		return ++nextConnectionId;
+	}
+	
+	/**
+	 * Indicates if there is an online user with the specified nickname
+	 * 
+	 * @param nickname nickname
+	 * @return <code>true</code> if the given nickname already exists, otherwise <code>false</code>
+	 */
+	protected boolean hasUser(final String nickname) {
+		return false;
 	}
 
-	@Override
-	public Channel join(String channelName, User user) {
-		assert channelName != null : "null as channel name is not accepted";
-		assert user != null : "null clients are not allowed to join";
+	/**
+	 * Determines if a user with the given nickname may connect to the server or not.
+	 * 
+ 	 * @param nickname nickname
+	 * @return <code>true</code> if the given user can connect, otherwise <code>false</code>
+	 */
+	protected boolean mayConnect(final String nickname) {
+		boolean mayConnect = isStarted() && nickname != null && !hasUser(nickname);
 		
-		Channel joinedChannel = null;
-		
-		if (channelName != null && user != null && isStarted()) {
-			if (!channels.containsKey(channelName)) {
-				Channel newChannel = new PublicChannel(channelName);
-				channels.put(channelName, newChannel);
-				newChannel.join(user);
-				
-				joinedChannel = newChannel;
-			}
-		}
-		
-		return joinedChannel;
+		return mayConnect;
 	}
 }

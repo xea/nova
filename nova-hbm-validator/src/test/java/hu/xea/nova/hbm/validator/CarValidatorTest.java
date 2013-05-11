@@ -1,7 +1,5 @@
 package hu.xea.nova.hbm.validator;
 
-import static org.junit.Assert.*;
-
 import hu.xea.nova.hbm.validator.model.Car;
 
 import java.util.Set;

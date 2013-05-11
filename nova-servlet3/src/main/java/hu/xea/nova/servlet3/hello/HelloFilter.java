@@ -32,6 +32,7 @@ public class HelloFilter implements Filter {
 	 * 
 	 * This implementation only appends a few messages to the log indicating that the filter has been initialized correctly
 	 */
+	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		logger.info("Initializing");
 		logger.info("Initialization complete");
@@ -42,6 +43,7 @@ public class HelloFilter implements Filter {
 	 * 
 	 * This implementation does nothing save for a little logging.
 	 */
+	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, 	FilterChain filterChain) 
 			throws IOException, ServletException {
 
@@ -55,6 +57,7 @@ public class HelloFilter implements Filter {
 	 * 
 	 * This implementation does nothing save for a little logging.
 	 */
+	@Override
 	public void destroy() {
 		logger.info("Destroying");
 		logger.info("Destroy complete");

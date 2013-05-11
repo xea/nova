@@ -9,16 +9,13 @@ import hu.xea.nova.chat.api.User;
 import hu.xea.nova.chat.impl.PublicChannel;
 
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.Callable;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpRequest;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,6 +58,7 @@ public class ChatController {
 	
 	/**
 	 * Display the login page where the user can authenticate
+	 * @return the view name
 	 */
 	@RequestMapping("/login")
 	public String displayLogin() {

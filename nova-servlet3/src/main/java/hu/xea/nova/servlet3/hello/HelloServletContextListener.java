@@ -26,10 +26,12 @@ public class HelloServletContextListener implements ServletContextListener {
 
 	final Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
 	
+	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		logger.info("Servlet Context created");
 	}
 
+	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
 		logger.info("Servlet Context destroyed");
 	}

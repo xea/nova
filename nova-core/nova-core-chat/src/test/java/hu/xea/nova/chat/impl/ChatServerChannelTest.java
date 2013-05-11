@@ -18,8 +18,10 @@ public class ChatServerChannelTest {
 	@Before
 	public void setup() {
 		server = new ChatServer();
+		
 	}
 	
+	/*
 	@Test
 	public void testIfUsersCanJoinChannel() {
 		server.start();
@@ -38,4 +40,12 @@ public class ChatServerChannelTest {
 		assertNotNull("The first join should always be successful", channel);
 		assertNull("Joining a channel more times should not result in multiple connections", server.join("testChannel", user));
 	}
+	
+	@Test
+	public void testIfUsersCanPartChannel() {
+		server.start();
+		final User user = server.connect("testUser");
+		final Channel channel = server.join("testChannel",  user);
+		assertTrue("Users must be able to leave channels", server.part(channel, user));
+	}*/
 }

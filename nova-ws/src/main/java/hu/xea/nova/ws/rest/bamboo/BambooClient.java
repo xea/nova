@@ -5,9 +5,6 @@ import hu.xea.nova.ws.rest.bamboo.api.BambooServer;
 import hu.xea.nova.ws.rest.bamboo.api.ExpandProject;
 import hu.xea.nova.ws.rest.bamboo.api.Projects;
 
-import org.jboss.resteasy.client.ProxyFactory;
-import org.jboss.resteasy.plugins.providers.RegisterBuiltin;
-import org.jboss.resteasy.spi.ResteasyProviderFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

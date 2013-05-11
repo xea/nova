@@ -1,7 +1,5 @@
 package hu.xea.nova.ws.rest.bamboo.api;
 
-import java.util.Collection;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;

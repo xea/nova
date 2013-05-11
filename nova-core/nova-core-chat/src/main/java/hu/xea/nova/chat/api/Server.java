@@ -39,19 +39,19 @@ public interface Server {
 	/**
 	 * Attempts to connect to the server with the supplied <code>nickname</code>.
 	 * 
-	 * <p>If the attempt was successful, then a newly created {@link User} object will be returned</p>
+	 * <p>If the attempt was successful, then a newly created {@link Connection} object will be returned</p>
 	 * 
 	 * @param nickname the nickname to connect with
-	 * @return the connected {@link User} object if successful, otherwise <code>null</code>
+	 * @return the {@link Connection} object
 	 */
-	public User connect(String nickname);
+	public Connection connect(String nickname);
 	
 	/**
-	 * Attempts to join the channel identified by <code>channelName</code>.
-	 * 
-	 * @param channelName the name of the channel to join
-	 * @param user the user who is joining the channel
-	 * @return the {@link Channel} object if successful, otherwise <code>null</code>
+	 * Disconnects the given connection with the specified reason
+	 * @param connection the connection to terminate
+	 * @param reason reason 
+	 * @return
 	 */
-	public Channel join(String channelName, User user);
+	public boolean disconnect(Connection connection, String reason);
+	
 }

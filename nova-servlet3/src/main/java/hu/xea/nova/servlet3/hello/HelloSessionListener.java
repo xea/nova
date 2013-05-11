@@ -12,10 +12,12 @@ public class HelloSessionListener implements HttpSessionListener {
 
 	private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
 	
+	@Override
 	public void sessionCreated(HttpSessionEvent sessionEvent) {
 		logger.info("Session created: " + sessionEvent.getSession().getId());
 	}
 
+	@Override
 	public void sessionDestroyed(HttpSessionEvent sessionEvent) {
 		logger.info("Session destroyed: " + sessionEvent.getSession().getId());
 	}

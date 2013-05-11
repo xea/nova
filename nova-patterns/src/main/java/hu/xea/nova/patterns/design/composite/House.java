@@ -1,7 +1,5 @@
 package hu.xea.nova.patterns.design.composite;
 
-import java.util.HashSet;
-import java.util.Set;
 
 public class House extends Part {
 

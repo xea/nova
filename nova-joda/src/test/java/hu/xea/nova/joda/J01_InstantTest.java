@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 import java.util.Calendar;
 
 import org.joda.time.DateTime;
-import org.joda.time.Duration;
-import org.joda.time.ReadableInterval;
 import org.junit.Test;
 
 public class J01_InstantTest {
@@ -22,15 +20,19 @@ public class J01_InstantTest {
 
 	@Test
 	public void testIntervals() {
+		// TODO jodatime interval testcaseket megírni
 	}
 	
 	@Test
 	public void testDurations() {
 		final DateTime dateTime = new DateTime();
+		
+		// TODO jodatime duration testcaseket megírni
 	}
 	
 	@Test
 	public void testPeriod() {
+		// TODO jodatime period testcaseket megírni
 	}
 		
 }

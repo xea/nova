@@ -1,10 +1,5 @@
 package hu.xea.nova.ws.rest.bamboo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import hu.xea.nova.ws.rest.bamboo.api.AuthType;
 import hu.xea.nova.ws.rest.bamboo.api.BambooServer;
 
@@ -27,6 +22,7 @@ public abstract class ServerFactory {
 	 * At the first attempt it tries to instantiate a real Bamboo client and if
 	 * it doesn't succeed then it creates a dummy client.
 	 * 
+	 * @param connection the connection that should be used  
 	 * @return a {@link ServerFactory} instance
 	 */
 	public static ServerFactory getInstance(final BambooConnection connection) {
