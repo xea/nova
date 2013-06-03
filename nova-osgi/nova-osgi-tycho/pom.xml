@@ -41,6 +41,7 @@
 	<modules>
 		<module>nova-osgi-tycho-api</module>
 		<module>nova-osgi-tycho-provider</module>
+		<module>nova-osgi-tycho-client</module>
 	</modules>
 
 	<repositories>
