@@ -1,8 +1,8 @@
 package hu.xea.nova.chat.impl;
 
-import hu.xea.nova.chat.api.Channel;
-import hu.xea.nova.chat.api.Message;
-import hu.xea.nova.chat.api.User;
+import hu.xea.nova.chat.Channel;
+import hu.xea.nova.chat.Message;
+import hu.xea.nova.chat.User;
 
 import java.util.List;
 import java.util.Set;

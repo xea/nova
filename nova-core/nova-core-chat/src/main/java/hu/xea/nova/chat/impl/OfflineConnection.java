@@ -1,6 +1,7 @@
 package hu.xea.nova.chat.impl;
 
-import hu.xea.nova.chat.api.Connection;
+import hu.xea.nova.chat.Channel;
+import hu.xea.nova.chat.Connection;
 
 /**
  * An offline-only connection that does not allow any operations to be executed on the server.
@@ -20,6 +21,11 @@ public class OfflineConnection implements Connection {
 	@Override
 	public boolean disconnect(String reason) {
 		return true;
+	}
+
+	@Override
+	public Channel join(String channelName) {
+		return null;
 	}
 
 }

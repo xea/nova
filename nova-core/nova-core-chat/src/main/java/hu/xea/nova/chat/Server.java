@@ -1,4 +1,4 @@
-package hu.xea.nova.chat.api;
+package hu.xea.nova.chat;
 
 /**
  * 
@@ -50,8 +50,16 @@ public interface Server {
 	 * Disconnects the given connection with the specified reason
 	 * @param connection the connection to terminate
 	 * @param reason reason 
-	 * @return
+	 * @return <code>true</code> if the connection was really disconnected, otherwise <code>false</code>e
 	 */
 	public boolean disconnect(Connection connection, String reason);
+	
+	/**
+	 * Indicates if the given connection object is registered as an active connection 
+	 * 
+	 * @param connection the connection
+	 * @return <code>true</code> if the connection is active, otherwise <code>false</code>
+	 */
+	public boolean isConnected(Connection connection);
 	
 }

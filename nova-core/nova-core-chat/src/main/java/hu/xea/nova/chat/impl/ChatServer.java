@@ -1,10 +1,10 @@
 package hu.xea.nova.chat.impl;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import hu.xea.nova.chat.Connection;
+import hu.xea.nova.chat.Server;
 
-import hu.xea.nova.chat.api.Connection;
-import hu.xea.nova.chat.api.Server;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * The default implementation of the {@link Server} interface.
@@ -25,9 +25,9 @@ public class ChatServer implements Server {
 	private volatile int nextConnectionId = 1;
 	
 	/**
-	 * Holds references of the connection objects assigned to nick names
+	 * Holds references of the connection objects
 	 */
-	private Map<String, Connection> connections = new ConcurrentHashMap<String, Connection>();
+	private Set<Connection> connections = new CopyOnWriteArraySet<Connection>();
 	
 	@Override
 	public boolean isStarted() {
@@ -56,12 +56,36 @@ public class ChatServer implements Server {
 		
 		if (mayConnect(nickname)) {
 			connection = new UserConnection(this);
-			connections.put(nickname, connection);
+			connections.add(connection);
 		} else {
 			connection = new OfflineConnection();
 		}
 		
 		return connection;
+	}
+	
+	@Override
+	public boolean disconnect(Connection connection, String reason) {
+		boolean disconnected = false;
+		
+		if (connection instanceof UserConnection && connections.contains(connection)) {
+			connections.remove(connection);
+			
+			disconnected = true;
+		}
+		
+		return disconnected;
+	}
+	
+	@Override
+	public boolean isConnected(Connection connection) {
+		boolean connected = false;
+		
+		if (connection != null && connections.contains(connection)) {
+			connected = true;
+		}
+		
+		return connected;
 	}
 	
 	/**
@@ -93,4 +117,6 @@ public class ChatServer implements Server {
 		
 		return mayConnect;
 	}
+
+
 }

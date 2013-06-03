@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import hu.xea.nova.chat.api.Channel;
-import hu.xea.nova.chat.api.User;
+import hu.xea.nova.chat.Channel;
+import hu.xea.nova.chat.User;
 import hu.xea.nova.chat.impl.PublicChannel;
 
 import org.junit.Test;

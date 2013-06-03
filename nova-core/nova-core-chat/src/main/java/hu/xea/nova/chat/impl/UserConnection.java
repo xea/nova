@@ -1,7 +1,8 @@
 package hu.xea.nova.chat.impl;
 
-import hu.xea.nova.chat.api.Connection;
-import hu.xea.nova.chat.api.Server;
+import hu.xea.nova.chat.Channel;
+import hu.xea.nova.chat.Connection;
+import hu.xea.nova.chat.Server;
 
 /**
  * A simple connection between a regular human user and the server
@@ -22,7 +23,11 @@ public class UserConnection implements Connection {
 
 	@Override
 	public boolean isConnected() {
-		boolean connected = server != null;
+		boolean connected = false;
+		
+		if (server != null && server.isConnected(this)) {
+			connected = true;
+		}
 		
 		return connected;
 	}
@@ -32,6 +37,14 @@ public class UserConnection implements Connection {
 		boolean disconnected = server.disconnect(this, reason);
 		
 		return disconnected;
+	}
+
+	@Override
+	public Channel join(String channelName) {
+		
+		final Channel channel = server.joinChannel(this, channelName);
+		
+		return null;
 	}
 
 }

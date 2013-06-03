@@ -31,6 +31,7 @@
 		<module>nova-owasp</module>
 		<module>nova-hibernate4</module>
 		<module>nova-drools</module>
+		<module>nova-osgi</module>
 	</modules>
 
 	<properties>
@@ -50,6 +51,8 @@
 		<slf4j.version>1.7.2</slf4j.version>
 		<spring.version>3.2.2.RELEASE</spring.version>
 		<spring-jade.version>0.3.2</spring-jade.version>
+		<tycho.version>0.18.0</tycho.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<build>
@@ -78,6 +81,14 @@
 							</goals>
 						</execution>
 					</executions>
+				</plugin>
+				
+			<!-- Eclipse Tycho for OSGi building -->
+				<plugin>
+				    <groupId>org.eclipse.tycho</groupId>
+				    <artifactId>tycho-maven-plugin</artifactId>
+				    <version>${tycho.version}</version>
+				    <extensions>true</extensions>
 				</plugin>
 			</plugins>
 		</pluginManagement>

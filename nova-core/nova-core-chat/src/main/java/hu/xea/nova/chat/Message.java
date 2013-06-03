@@ -1,4 +1,4 @@
-package hu.xea.nova.chat.api;
+package hu.xea.nova.chat;
 
 
 /**

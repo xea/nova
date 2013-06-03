@@ -3,8 +3,8 @@ package hu.xea.nova.chat.impl;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import hu.xea.nova.chat.api.Connection;
-import hu.xea.nova.chat.api.Server;
+import hu.xea.nova.chat.Connection;
+import hu.xea.nova.chat.Server;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -54,6 +54,11 @@ public class ChatServerTest {
 		final Connection connection = server.connect("testUser");
 		assertNotNull("The server must handle connections when not running", connection);
 		assertFalse("Offline connections must always show offline state", connection.isConnected());
+	}
+	
+	@Test
+	public void testIfDisallowsNullConnectionsForDisconnecting() {
+		assertFalse("Null values are not to be handled when disconnecting", server.disconnect(null, "test"));
 	}
 	
 	@Test

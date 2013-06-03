@@ -1,4 +1,4 @@
-package hu.xea.nova.chat.api;
+package hu.xea.nova.chat;
 
 /**
  * A single client-to-server connection which allows the use of every
@@ -22,4 +22,12 @@ public interface Connection {
 	 * @return <code>true</code> if disconnecting was successful otherwise <code>false</code>
 	 */
 	public boolean disconnect(String reason);
+	
+	/**
+	 * Attempts to join the specified channel.
+	 * 
+	 * @param channelName name of the channel to join
+	 * @return the joined <code>Channel</code> or <code>null</code> if the user is not allowed to join
+	 */
+	public Channel join(String channelName);
 }
