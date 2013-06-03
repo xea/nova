@@ -1,0 +1,8 @@
+Manifest-Version: 1
+Bundle-Version: 1.0
+Bundle-SymbolicName: nova-osgi-tycho-provider
+Bundle-Name: Tycho Provider
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ManifestVersion: 2
+Import-Package: hu.xea.nova.osgi.tycho,
+ org.osgi.framework;version="1.7.0"
