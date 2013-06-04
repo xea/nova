@@ -4,4 +4,5 @@ Bundle-SymbolicName: nova-osgi-tycho-client
 Bundle-Name: Tycho Client
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ManifestVersion: 2
-Import-Package: hu.xea.nova.osgi.tycho
+Import-Package: hu.xea.nova.osgi.tycho,
+ org.osgi.service.log

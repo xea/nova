@@ -1,17 +1,22 @@
 package hu.xea.nova.osgi.tycho.client;
 
+import org.osgi.service.log.LogService;
+
 import hu.xea.nova.osgi.tycho.SampleService;
 
 public class SampleClient {
 	
 	private SampleService service;
+	
+	private LogService logger;
 
 	public void init() {
-		System.out.println("Init client");
+		logger.log(LogService.LOG_WARNING, "SampleClient start");
+		logger.log(LogService.LOG_WARNING, "ApplicationName: " + service.getApplicationName());
 	}
 	
-	public void method() {
-		System.out.println("Destroy client");
+	public void destroy() {
+		logger.log(LogService.LOG_WARNING, "SampleClient stop");
 	}
 
 	public SampleService getService() {
@@ -21,4 +26,13 @@ public class SampleClient {
 	public void setService(SampleService service) {
 		this.service = service;
 	}
+
+	public LogService getLogger() {
+		return logger;
+	}
+	
+	public void setLogger(LogService logger) {
+		this.logger = logger;
+	}
 }
+
