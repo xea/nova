@@ -6,10 +6,11 @@
 		<artifactId>nova-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>nova-core</artifactId>
+	<artifactId>nova-mq</artifactId>
 	<packaging>pom</packaging>
-	<name>Nova Core Business Logic</name>
+	<name>Nova Message Queueing</name>
 	<modules>
-		<module>nova-core-chat</module>
+		<module>nova-mq-web-frontend</module>
+		<module>nova-mq-web-backend</module>
 	</modules>
 </project>

@@ -6,10 +6,18 @@
 		<artifactId>nova-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>nova-core</artifactId>
-	<packaging>pom</packaging>
-	<name>Nova Core Business Logic</name>
-	<modules>
-		<module>nova-core-chat</module>
-	</modules>
+	<artifactId>nova-selenium</artifactId>
+	<name>Nova Selenium Testing Prototype</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>

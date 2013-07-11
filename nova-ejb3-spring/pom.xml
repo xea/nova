@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>hu.xea.nova</groupId>
+		<artifactId>nova-parent</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>nova-ejb3-spring</artifactId>
+	<packaging>pom</packaging>
+	<name>Nova EJB3+Spring Integration Prototype</name>
+	<modules>
+		<module>nova-ejb3-spring-core</module>
+		<module>nova-ejb3-spring-backend</module>
+		<module>nova-ejb3-spring-frontend</module>
+		<module>nova-ejb3-spring-ear</module>
+	</modules>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>hu.xea.nova</groupId>
+				<artifactId>nova-ejb3-spring-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>hu.xea.nova</groupId>
+				<artifactId>nova-ejb3-spring-backend</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>hu.xea.nova</groupId>
+				<artifactId>nova-ejb3-spring-frontend</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

@@ -32,27 +32,36 @@
 		<module>nova-hibernate4</module>
 		<module>nova-drools</module>
 		<module>nova-osgi</module>
+		<module>nova-selenium</module>
+		<module>nova-mq</module>
+		<module>nova-ejb3-spring</module>
 	</modules>
 
 	<properties>
+	    <activemq.version>5.7.0</activemq.version>
 		<aspectj.version>1.6.11</aspectj.version>
 		<esapi.version>2.0.1</esapi.version>
 		<logback.version>1.0.9</logback.version>
 		<hibernate-core.version>4.2.0.Final</hibernate-core.version>
 		<hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
 		<jackson.version>1.9.12</jackson.version>
+		<javaee-api.version>6.0</javaee-api.version>
 		<jade.version>0.3.9</jade.version>
 		<joda.version>2.2</joda.version>
-		<jdk.version>1.7</jdk.version>
+		<jdk.version>1.6</jdk.version>
 		<junit.version>4.11</junit.version>
 		<mockito.version>1.9.5</mockito.version>
 		<resteasy.version>2.3.5.Final</resteasy.version>
+		<selenium-java.version>2.33.0</selenium-java.version>
 		<servlet-api.version>3.0.1</servlet-api.version>
 		<slf4j.version>1.7.2</slf4j.version>
 		<spring.version>3.2.2.RELEASE</spring.version>
 		<spring-jade.version>0.3.2</spring-jade.version>
 		<tycho.version>0.18.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<plugin.ear.version>2.8</plugin.ear.version>
+		<plugin.ejb.version>2.3</plugin.ejb.version>
 	</properties>
 
 	<build>
@@ -83,12 +92,25 @@
 					</executions>
 				</plugin>
 				
-			<!-- Eclipse Tycho for OSGi building -->
+				<!-- Eclipse Tycho for OSGi building -->
 				<plugin>
 				    <groupId>org.eclipse.tycho</groupId>
 				    <artifactId>tycho-maven-plugin</artifactId>
 				    <version>${tycho.version}</version>
 				    <extensions>true</extensions>
+				</plugin>
+				
+				<!-- EJB3 Plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-ejb-plugin</artifactId>
+					<version>${plugin.ejb.version}</version>
+				</plugin>
+				
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-ear-plugin</artifactId>
+					<version>${plugin.ear.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -109,6 +131,13 @@
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>${servlet-api.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>${javaee-api.version}</version>
+				<scope>provided</scope>
 			</dependency>
 
 			<!-- View Engines -->
@@ -166,11 +195,35 @@
 			</dependency>
 
 			<!-- Spring Framework -->
+			
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-jms</artifactId>
+			    <version>${spring.version}</version>
 			</dependency>
 
 			<dependency>
@@ -193,6 +246,12 @@
 				<groupId>org.mockito</groupId>
 				<artifactId>mockito-all</artifactId>
 				<version>${mockito.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.seleniumhq.selenium</groupId>
+			    <artifactId>selenium-java</artifactId>
+			    <version>${selenium-java.version}</version>
 			</dependency>
 			
 			<!-- Joda Time -->
@@ -226,6 +285,14 @@
 				<groupId>org.owasp.esapi</groupId>
 				<artifactId>esapi</artifactId>
 				<version>${esapi.version}</version>
+			</dependency>
+			
+			<!-- Message Queue -->
+			
+			<dependency>
+			    <groupId>org.apache.activemq</groupId>
+			    <artifactId>activemq-core</artifactId>
+			    <version>${activemq.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

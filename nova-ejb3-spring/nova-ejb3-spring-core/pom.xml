@@ -3,13 +3,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>hu.xea.nova</groupId>
-		<artifactId>nova-parent</artifactId>
+		<artifactId>nova-ejb3-spring</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>nova-core</artifactId>
-	<packaging>pom</packaging>
-	<name>Nova Core Business Logic</name>
-	<modules>
-		<module>nova-core-chat</module>
-	</modules>
+	<artifactId>nova-ejb3-spring-core</artifactId>
+	<name>Nova EJB3+Spring Integration Prototype Core</name>
+	
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+	</dependencies>
 </project>

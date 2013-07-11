@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>hu.xea.nova</groupId>
+		<artifactId>nova-ejb3-spring</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>nova-ejb3-spring-ear</artifactId>
+	<packaging>ear</packaging>
+	<name>Nova EJB3+Spring Integration Prototype EAR Bundle</name>
+	
+	<dependencies>
+		<dependency>
+			<groupId>hu.xea.nova</groupId>
+			<artifactId>nova-ejb3-spring-frontend</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>hu.xea.nova</groupId>
+			<artifactId>nova-ejb3-spring-backend</artifactId>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<modules>
+						<webModule>
+							<groupId>hu.xea.nova</groupId>
+							<artifactId>nova-ejb3-spring-frontend</artifactId>
+							<contextRoot>nova-ejb3-spring-frontend</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>hu.xea.nova</groupId>
+							<artifactId>nova-ejb3-spring-backend</artifactId>
+							<contextRoot>nova-ejb3-spring-backend</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
