@@ -72,7 +72,8 @@
     </bean>
 
 	<bean id="jmsBroker" class="org.hornetq.jms.server.embedded.EmbeddedJMS"
-		p:configuration-ref="configuration" init-method="start" destroy-method="stop" /> <!-- p:jmsConfiguration-ref="jmsConfiguration" /> -->
+		p:configuration-ref="configuration" init-method="start" destroy-method="stop" 
+		p:jmsConfiguration-ref="hornetQJmsConfig" />
 
 
 	<bean id="hornetConnectionFactory" class="org.hornetq.jms.client.HornetQJMSConnectionFactory">
@@ -85,10 +86,42 @@
 					<map key-type="java.lang.String" value-type="java.lang.Object">
 						<!-- HornetQ standalone instance details -->
 						<entry key="host" value="127.0.0.1"></entry>
-						<entry key="port" value="5445"></entry>
+						<entry key="port" value="5446"></entry>
 					</map>
 				</constructor-arg>
 			</bean>
+		</constructor-arg>
+	</bean>
+
+	<bean id="hornetQJmsConfig" class="org.hornetq.jms.server.config.impl.JMSConfigurationImpl">
+		<constructor-arg index="0">
+			<list />
+		</constructor-arg>
+		<!-- Queue configurations -->
+		<constructor-arg index="1">
+			<list>
+				<bean class="org.hornetq.jms.server.config.impl.JMSQueueConfigurationImpl">
+					<!-- Name -->
+					<constructor-arg index="0" value="testQueue" />
+					<!-- Selector -->
+					<constructor-arg index="1">
+						<null />
+					</constructor-arg>
+					<!-- Durable queue -->
+					<constructor-arg index="2" value="true" />
+					<!-- JNDI bindings, empty list for none -->
+					<constructor-arg index="3">
+						<list />
+					</constructor-arg>
+				</bean>
+			</list>
+		</constructor-arg>
+		<!-- Topic configurations -->
+		<constructor-arg index="2">
+			<list />
+		</constructor-arg>
+		<constructor-arg index="3">
+			<null />
 		</constructor-arg>
 	</bean>
 
@@ -109,4 +142,10 @@
 	<bean id="messageSender" class="hu.xea.nova.mq.hornetq.HornetSender">
 		<property name="jmsTemplate" ref="producerTemplate" />
 	</bean>
+	
+	<bean id="messageReceiver" class="hu.xea.nova.mq.hornetq.HornetListener" />
+	
+	<jms:listener-container connection-factory="connectionFactory">
+		<jms:listener destination="testQueue" ref="messageReceiver" method="onMessage" />
+	</jms:listener-container>
 </beans>

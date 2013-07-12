@@ -12,6 +12,10 @@ public class HornetSender {
 	private Destination destination;
 	
 	private JmsTemplate jmsTemplate;
+	
+	public void sendMessage(final String message) {
+		jmsTemplate.convertAndSend(message);
+	}
 
 	public ConnectionFactory getConnectionFactory() {
 		return connectionFactory;
