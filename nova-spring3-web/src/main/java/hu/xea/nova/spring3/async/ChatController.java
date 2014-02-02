@@ -3,11 +3,6 @@
  */
 package hu.xea.nova.spring3.async;
 
-import hu.xea.nova.chat.Channel;
-import hu.xea.nova.chat.Message;
-import hu.xea.nova.chat.User;
-import hu.xea.nova.chat.impl.PublicChannel;
-
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -50,11 +45,6 @@ public class ChatController {
 	public static final String PAGE_MAIN = "main";
 	
 	private final Logger logger = LoggerFactory.getLogger(getClass());
-	
-	/**
-	 * The only chat channel on this controller
-	 */
-	private final Channel channel = new PublicChannel();
 	
 	/**
 	 * Display the login page where the user can authenticate

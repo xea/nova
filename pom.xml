@@ -35,6 +35,7 @@
 		<module>nova-selenium</module>
 		<module>nova-mq</module>
 		<module>nova-ejb3-spring</module>
+		<module>nova-algorithm</module>
 	</modules>
 
 	<properties>
