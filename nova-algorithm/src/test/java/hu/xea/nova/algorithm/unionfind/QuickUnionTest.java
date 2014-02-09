@@ -36,4 +36,5 @@ public class QuickUnionTest {
 		
 		assertTrue(qu.connected(3, 8));
 	}
+	
 }

@@ -27,6 +27,7 @@ public class WeightedQuickUnion {
 	 */
 	public WeightedQuickUnion(final int n) {
 		id = new int[n];
+		size = new int[n];
 		
 		for (int i = 0; i < n; i++) {
 			id[i] = i;
@@ -72,5 +73,15 @@ public class WeightedQuickUnion {
 			}
 		}
 		
+	}
+
+	public String toString() {
+		final StringBuffer sb = new StringBuffer();
+		
+		for (final int p : id) {
+			sb.append(p + " ");
+		}
+		
+		return sb.toString().trim();
 	}
 }

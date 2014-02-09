@@ -56,5 +56,15 @@ public class QuickFind {
 			} 
 		}
 	}
+	
+	public String toString() {
+		final StringBuffer sb = new StringBuffer();
+		
+		for (final int p : id) {
+			sb.append(p + " ");
+		}
+		
+		return sb.toString().trim();
+	}
 }
 
